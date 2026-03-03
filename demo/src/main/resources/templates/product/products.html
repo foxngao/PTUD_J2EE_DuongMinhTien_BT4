@@ -43,8 +43,10 @@
                     </td>
                     <td>
                         <a th:href="@{'/products/edit/' + ${product.id}}" class="btn btn-sm btn-primary">Edit</a>
-                        <a th:href="@{'/products/delete/' + ${product.id}}" class="btn btn-sm btn-danger"
-                           onclick="return confirm('Bạn có chắc muốn xóa?')">Delete</a>
+                        <form th:action="@{'/products/delete/' + ${product.id}}" method="post" style="display:inline">
+                            <button type="submit" class="btn btn-sm btn-danger"
+                                    onclick="return confirm('Bạn có chắc muốn xóa?')">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 <tr th:if="${#lists.isEmpty(products)}">
